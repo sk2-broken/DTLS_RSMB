@@ -228,12 +228,14 @@ typedef struct dtls_context_t {
 #ifndef WITH_CONTIKI
   dtls_peer_t *peers;		/**< peer hash map */
 #else /* WITH_CONTIKI */
-  LIST_STRUCT(peers);
+  //LIST_STRUCT(peers);
+  dtls_peer_t *peers;           /**< peer hash map */
 
   struct etimer retransmit_timer; /**< fires when the next packet must be sent */
 #endif /* WITH_CONTIKI */
 
-  LIST_STRUCT(sendqueue);	/**< the packets to send */
+  //LIST_STRUCT(sendqueue);	/**< the packets to send */
+  struct netq_t *sendqueue;	/**< the packets to send */
 
   void *app;			/**< application-specific data */
 

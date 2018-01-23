@@ -35,7 +35,7 @@
 
 #include "Heap.h"
 
-extern void dtls_retransmit_process();
+//extern void dtls_retransmit_process();
 
 static char* packet_names[] =
 {
@@ -209,7 +209,7 @@ Listener* list;
 			if(peer->state != DTLS_STATE_CONNECTED)	// if DTLS handshake is running
 			{
 				*error = DTLS_WAIT_FINISHED;	// Reuse error to notify that a DTLS handshake is running 
-				dtls_retransmit_process();		// TODO LW improve retransmission process
+				//dtls_retransmit_process();		// TODO LW improve retransmission process
 				goto exit;						// TODO LW 				
 			}
 			else if (peer->state == DTLS_STATE_CONNECTED)	//	if DTLS handshake is finished
